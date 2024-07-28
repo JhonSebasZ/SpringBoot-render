@@ -1,9 +1,16 @@
+
+Parece que tu proyecto no incluye mvnw (Maven Wrapper). Vamos a usar mvn directamente en lugar de ./mvnw.
+
+Aquí tienes una versión del Dockerfile que usa mvn directamente:
+
+dockerfile
+Copiar código
 # Etapa de construcción
 FROM eclipse-temurin:22-jdk AS build
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
-RUN ./mvnw clean package -Pprod -DskipTests
+RUN mvn clean package -Pprod -DskipTests
 
 # Etapa de ejecución
 FROM eclipse-temurin:22-jdk
