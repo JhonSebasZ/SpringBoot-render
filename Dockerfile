@@ -1,4 +1,4 @@
-FROM maven:3.9.0-jdk-22 AS build
+FROM maven:4.0.0-jdk-22 AS build
 COPY . .
 RUN mvn clean package -Pprod -DskipTests
 
