@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>Aplicativo de tareas</div>
+		<a th:href="@{/notes/add}">Crear tarea</a>
+		<table border="1">
+			<thead>
+				<th>Nombre</th>
+				<th>Descripcion</th>
+				<th>Estado</th>
+				<th>Modificar</th>
+				<th>Eliminar</th>
+				<th>Completar</th>
+			</thead>
+			<tbody>
+				<tr th:each="note: ${notes}">
+					<td th:text="${note.title}">Nombre</td>
+					<td th:text="${note.description}">descripcion</td>
+					<td th:text="${note.complete ? 'Completa' : 'Incompleta'}"></td>
+					<td><a th:href="@{/notes/edit/} + ${note.idTask}" th:text="Modificar"></a></td>
+					<td><a th:href="@{/notes/delete/} + ${note.idTask}" th:text="Eliminar"></a></td>
+					<th><a th:if="${!note.complete}" th:href="@{/notes/complete/} + ${note.idTask}" th:text="Completar"><a/></th>
+				</tr>
+			</tbody>
+		</table>
+    </body>
+</html>

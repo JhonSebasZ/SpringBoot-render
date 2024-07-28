@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>Aplicativo de tareas</div>
+		<form th:action="@{/notes/save}" method="post" th:object="${note}">
+		            <input type="hidden" th:field="*{idTask}" />
+
+		            <label for="title">Titulo</label>
+		            <input type="text" id="title" th:field="*{title}" />
+
+		            <label for="description">Descripcion</label>
+		            <input type="text" id="description" th:field="*{description}" />
+
+		            <input type="submit" value="Guardar"/>
+					
+		        </form>
+    </body>
+</html>
